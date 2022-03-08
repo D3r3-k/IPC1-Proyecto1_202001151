@@ -47,9 +47,11 @@ public class MiBibliotecaVirtual extends javax.swing.JFrame {
     public void userLogin(int pos) {
         AdminUsers au = new AdminUsers();
         for (int i = 0; i < au.usuariosDB.length; i++) {
-            if (au.usuariosDB[i].getUser().equals(au.usuariosDB[pos].getUser())) {
-                userLogin = i;
-                initComponents2();
+            if (au.usuariosDB[i] != null) {
+                if (au.usuariosDB[i].getUser().equals(au.usuariosDB[pos].getUser())) {
+                    userLogin = i;
+                    initComponents2();
+                }
             }
         }
 
@@ -394,6 +396,7 @@ public class MiBibliotecaVirtual extends javax.swing.JFrame {
         textarea_desc.setLineWrap(true);
         textarea_desc.setTabSize(0);
         textarea_desc.setToolTipText("");
+        textarea_desc.setWrapStyleWord(true);
         descripcion.setViewportView(textarea_desc);
 
         panel_info.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 590, 360));

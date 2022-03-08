@@ -7,7 +7,6 @@ import D3r3_k.Principal.Inicio;
 import com.formdev.flatlaf.FlatDarkLaf;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -18,9 +17,11 @@ public class DashUser extends javax.swing.JFrame {
     public void userLogin(int pos) {
         AdminUsers au = new AdminUsers();
         for (int i = 0; i < au.usuariosDB.length; i++) {
-            if (au.usuariosDB[i].getUser().equals(au.usuariosDB[pos].getUser())) {
-                userLogin = i;
-                initComponents2();
+            if (au.usuariosDB[i] != null) {
+                if (au.usuariosDB[i].getUser().equals(au.usuariosDB[pos].getUser())) {
+                    userLogin = i;
+                    initComponents2();
+                }
             }
         }
 

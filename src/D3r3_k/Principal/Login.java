@@ -207,7 +207,7 @@ public class Login extends javax.swing.JFrame {
     private void login() {
         AdminUsers au = new AdminUsers();
 
-        String user = input_user.getText();
+        String user = input_user.getText().toLowerCase();
         String pass = new String(input_pass.getPassword());
 
         String rol = "usuario";
@@ -233,18 +233,18 @@ public class Login extends javax.swing.JFrame {
         } else {
             if (existe) {
                 if (au.usuariosDB[userLogin].getUser().equals(user) && au.usuariosDB[userLogin].getPassword().equals(pass)) {
-                    if (rol == "admin") {
+                    if ("admin".equals(rol)) {
                         DashAdmin da = new DashAdmin();
                         this.dispose();
                         da.setVisible(true);
-                    } else if (rol == "usuario") {
+                    } else if ("usuario".equals(rol)) {
                         DashUser du = new DashUser();
                         this.dispose();
                         du.userLogin(userLogin);
                         du.setVisible(true);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Los datos no coinciden", "Iniciar Sesion", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Los datos no coinciden", "Iniciar Sesion", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "El usuario no existe", "Iniciar Sesion", JOptionPane.ERROR_MESSAGE);

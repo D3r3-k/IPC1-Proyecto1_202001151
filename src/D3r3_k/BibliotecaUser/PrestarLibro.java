@@ -33,9 +33,11 @@ public class PrestarLibro extends javax.swing.JFrame {
     public void userLogin(int pos) {
         AdminUsers au = new AdminUsers();
         for (int i = 0; i < au.usuariosDB.length; i++) {
-            if (au.usuariosDB[i].getUser().equals(au.usuariosDB[pos].getUser())) {
-                userLogin = i;
-                initComponents2();
+            if (au.usuariosDB[i] != null) {
+                if (au.usuariosDB[i].getUser().equals(au.usuariosDB[pos].getUser())) {
+                    userLogin = i;
+                    initComponents2();
+                }
             }
         }
 

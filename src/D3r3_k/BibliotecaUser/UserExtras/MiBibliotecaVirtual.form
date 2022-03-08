@@ -416,6 +416,7 @@
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="tabSize" type="int" value="0"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
+                        <Property name="wrapStyleWord" type="boolean" value="true"/>
                       </Properties>
                     </Component>
                   </SubComponents>

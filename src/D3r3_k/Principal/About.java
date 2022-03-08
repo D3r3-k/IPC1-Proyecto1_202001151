@@ -32,6 +32,7 @@ public class About extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_back2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -118,8 +119,6 @@ public class About extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_back;
-    private javax.swing.JButton btn_back1;
     private javax.swing.JButton btn_back2;
     private javax.swing.JLabel icon;
     private javax.swing.JPanel jPanel1;

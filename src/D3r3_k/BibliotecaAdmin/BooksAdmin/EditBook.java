@@ -24,9 +24,10 @@ public class EditBook extends javax.swing.JFrame {
 
     public void editBook(String codeBook) {
         AdminBooks adminBooks = new AdminBooks();
+
         for (int i = 0; i < adminBooks.booksDB.length; i++) {
             if (adminBooks.booksDB[i] != null) {
-                if (adminBooks.booksDB[i].getCodeBook() == codeBook) {
+                if (adminBooks.booksDB[i].getCodeBook().equals(codeBook)) {
                     editCodeBook = adminBooks.booksDB[i].getTipo();
                     input_type.setSelectedIndex(editCodeBook);
                     codeBooks = i;
@@ -46,7 +47,7 @@ public class EditBook extends javax.swing.JFrame {
         }
         for (int i = 0; i < adminBooks.librosDB.length; i++) {
             if (adminBooks.librosDB[i] != null) {
-                if (adminBooks.librosDB[i].getCodeBook() == codeBook) {
+                if (adminBooks.librosDB[i].getCodeBook().equals(codeBook)) {
                     codeLibro = i;
                     break;
                 }
@@ -55,7 +56,7 @@ public class EditBook extends javax.swing.JFrame {
         }
         for (int i = 0; i < adminBooks.revistasDB.length; i++) {
             if (adminBooks.revistasDB[i] != null) {
-                if (adminBooks.revistasDB[i].getCodeBook() == codeBook) {
+                if (adminBooks.revistasDB[i].getCodeBook().equals(codeBook)) {
                     codeRevista = i;
                     break;
                 }
@@ -64,7 +65,7 @@ public class EditBook extends javax.swing.JFrame {
         }
         for (int i = 0; i < adminBooks.tesisDB.length; i++) {
             if (adminBooks.tesisDB[i] != null) {
-                if (adminBooks.tesisDB[i].getCodeBook() == codeBook) {
+                if (adminBooks.tesisDB[i].getCodeBook().equals(codeBook)) {
                     codeTesis = i;
                     break;
                 }
@@ -73,7 +74,7 @@ public class EditBook extends javax.swing.JFrame {
         }
         for (int i = 0; i < adminBooks.digitalesDB.length; i++) {
             if (adminBooks.digitalesDB[i] != null) {
-                if (adminBooks.digitalesDB[i].getCodeBook() == codeBook) {
+                if (adminBooks.digitalesDB[i].getCodeBook().equals(codeBook)) {
                     codeDigital = i;
                     break;
                 }
@@ -116,6 +117,19 @@ public class EditBook extends javax.swing.JFrame {
         inputArea_desc = new javax.swing.JTextArea();
         TemasL = new javax.swing.JScrollPane();
         inputArea_temas = new javax.swing.JTextArea();
+        panel_digital = new javax.swing.JPanel();
+        LibroDigitalTxt = new javax.swing.JLabel();
+        AutorTxtD = new javax.swing.JLabel();
+        input_autorD = new javax.swing.JTextField();
+        AñoPublicacionTxtD = new javax.swing.JLabel();
+        input_yearD = new javax.swing.JTextField();
+        TituloTxtD = new javax.swing.JLabel();
+        input_tituloD = new javax.swing.JTextField();
+        EdicionTxtD = new javax.swing.JLabel();
+        input_edicionD = new javax.swing.JTextField();
+        TamañoTxtD = new javax.swing.JLabel();
+        input_filesizeD = new javax.swing.JTextField();
+        input_filesieType = new javax.swing.JComboBox<>();
         panel_libro = new javax.swing.JPanel();
         LibrosTxtL = new javax.swing.JLabel();
         AutorTxtL = new javax.swing.JLabel();
@@ -166,18 +180,6 @@ public class EditBook extends javax.swing.JFrame {
         input_copiasT = new javax.swing.JTextField();
         DisponiblesTxtT = new javax.swing.JLabel();
         input_disponiblesT = new javax.swing.JTextField();
-        panel_digital = new javax.swing.JPanel();
-        LibroDigitalTxt = new javax.swing.JLabel();
-        AutorTxtD = new javax.swing.JLabel();
-        input_autorD = new javax.swing.JTextField();
-        AñoPublicacionTxtD = new javax.swing.JLabel();
-        input_yearD = new javax.swing.JTextField();
-        TituloTxtD = new javax.swing.JLabel();
-        input_tituloD = new javax.swing.JTextField();
-        EdicionTxtD = new javax.swing.JLabel();
-        input_edicionD = new javax.swing.JTextField();
-        TamañoTxtD = new javax.swing.JLabel();
-        input_filesizeD = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Nuevo Libro");
@@ -308,6 +310,90 @@ public class EditBook extends javax.swing.JFrame {
         panel_pclave_desc_temas.add(TemasL, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         background.add(panel_pclave_desc_temas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
+
+        panel_digital.setPreferredSize(new java.awt.Dimension(450, 550));
+        panel_digital.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LibroDigitalTxt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        LibroDigitalTxt.setForeground(java.awt.Color.white);
+        LibroDigitalTxt.setText("Libro Digital");
+        panel_digital.add(LibroDigitalTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        AutorTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        AutorTxtD.setForeground(java.awt.Color.white);
+        AutorTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AutorTxtD.setText("Autor");
+        AutorTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
+        panel_digital.add(AutorTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
+
+        input_autorD.setForeground(java.awt.Color.white);
+        input_autorD.setPreferredSize(new java.awt.Dimension(250, 30));
+        panel_digital.add(input_autorD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
+
+        AñoPublicacionTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        AñoPublicacionTxtD.setForeground(java.awt.Color.white);
+        AñoPublicacionTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AñoPublicacionTxtD.setText("Año Publicacion");
+        AñoPublicacionTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
+        panel_digital.add(AñoPublicacionTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
+
+        input_yearD.setForeground(java.awt.Color.white);
+        input_yearD.setPreferredSize(new java.awt.Dimension(250, 30));
+        input_yearD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                input_yearDKeyTyped(evt);
+            }
+        });
+        panel_digital.add(input_yearD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+
+        TituloTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TituloTxtD.setForeground(java.awt.Color.white);
+        TituloTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        TituloTxtD.setText("Titulo");
+        TituloTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
+        panel_digital.add(TituloTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
+
+        input_tituloD.setForeground(java.awt.Color.white);
+        input_tituloD.setPreferredSize(new java.awt.Dimension(250, 30));
+        panel_digital.add(input_tituloD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+
+        EdicionTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        EdicionTxtD.setForeground(java.awt.Color.white);
+        EdicionTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        EdicionTxtD.setText("Edicion");
+        EdicionTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
+        panel_digital.add(EdicionTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
+
+        input_edicionD.setForeground(java.awt.Color.white);
+        input_edicionD.setPreferredSize(new java.awt.Dimension(250, 30));
+        input_edicionD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                input_edicionDKeyTyped(evt);
+            }
+        });
+        panel_digital.add(input_edicionD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
+
+        TamañoTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TamañoTxtD.setForeground(java.awt.Color.white);
+        TamañoTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        TamañoTxtD.setText("Tamaño");
+        TamañoTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
+        panel_digital.add(TamañoTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));
+
+        input_filesizeD.setForeground(java.awt.Color.white);
+        input_filesizeD.setPreferredSize(new java.awt.Dimension(250, 30));
+        input_filesizeD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                input_filesizeDKeyTyped(evt);
+            }
+        });
+        panel_digital.add(input_filesizeD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 190, -1));
+
+        input_filesieType.setForeground(java.awt.Color.white);
+        input_filesieType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MB", "GB" }));
+        panel_digital.add(input_filesieType, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 60, 30));
+
+        background.add(panel_digital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
         panel_libro.setPreferredSize(new java.awt.Dimension(450, 550));
         panel_libro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -651,86 +737,6 @@ public class EditBook extends javax.swing.JFrame {
 
         background.add(panel_tesis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
-        panel_digital.setPreferredSize(new java.awt.Dimension(450, 550));
-        panel_digital.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        LibroDigitalTxt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        LibroDigitalTxt.setForeground(java.awt.Color.white);
-        LibroDigitalTxt.setText("Libro Digital");
-        panel_digital.add(LibroDigitalTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        AutorTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        AutorTxtD.setForeground(java.awt.Color.white);
-        AutorTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        AutorTxtD.setText("Autor");
-        AutorTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
-        panel_digital.add(AutorTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
-
-        input_autorD.setForeground(java.awt.Color.white);
-        input_autorD.setPreferredSize(new java.awt.Dimension(250, 30));
-        panel_digital.add(input_autorD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
-
-        AñoPublicacionTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        AñoPublicacionTxtD.setForeground(java.awt.Color.white);
-        AñoPublicacionTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        AñoPublicacionTxtD.setText("Año Publicacion");
-        AñoPublicacionTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
-        panel_digital.add(AñoPublicacionTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
-
-        input_yearD.setForeground(java.awt.Color.white);
-        input_yearD.setPreferredSize(new java.awt.Dimension(250, 30));
-        input_yearD.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                input_yearDKeyTyped(evt);
-            }
-        });
-        panel_digital.add(input_yearD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
-
-        TituloTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TituloTxtD.setForeground(java.awt.Color.white);
-        TituloTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        TituloTxtD.setText("Titulo");
-        TituloTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
-        panel_digital.add(TituloTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
-
-        input_tituloD.setForeground(java.awt.Color.white);
-        input_tituloD.setPreferredSize(new java.awt.Dimension(250, 30));
-        panel_digital.add(input_tituloD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
-
-        EdicionTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        EdicionTxtD.setForeground(java.awt.Color.white);
-        EdicionTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        EdicionTxtD.setText("Edicion");
-        EdicionTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
-        panel_digital.add(EdicionTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
-
-        input_edicionD.setForeground(java.awt.Color.white);
-        input_edicionD.setPreferredSize(new java.awt.Dimension(250, 30));
-        input_edicionD.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                input_edicionDKeyTyped(evt);
-            }
-        });
-        panel_digital.add(input_edicionD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
-
-        TamañoTxtD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TamañoTxtD.setForeground(java.awt.Color.white);
-        TamañoTxtD.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        TamañoTxtD.setText("Tamaño");
-        TamañoTxtD.setPreferredSize(new java.awt.Dimension(140, 30));
-        panel_digital.add(TamañoTxtD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));
-
-        input_filesizeD.setForeground(java.awt.Color.white);
-        input_filesizeD.setPreferredSize(new java.awt.Dimension(250, 30));
-        input_filesizeD.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                input_filesizeDKeyTyped(evt);
-            }
-        });
-        panel_digital.add(input_filesizeD, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
-
-        background.add(panel_digital, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -935,9 +941,17 @@ public class EditBook extends javax.swing.JFrame {
         String year = input_yearD.getText();
         String titulo = input_tituloD.getText();
         String edicion = input_edicionD.getText();
-        String filesize = input_filesizeD.getText();
+        String filesize_ = input_filesizeD.getText();
+        char[] filesizeNum_ = filesize_.toCharArray();
+        String numFilesize = "";
+        for (int i = 0; i < filesizeNum_.length; i++) {
+            if (Character.isDigit(filesizeNum_[i])) {
+                numFilesize += filesizeNum_[i];
+            }
+        }
+        String filesize2 = (String) input_filesieType.getSelectedItem();
 
-        if (desc.isBlank() || _pclave.isBlank() || _temas.isBlank() || autor.isBlank() || year.isBlank() || filesize.isBlank() || titulo.isBlank() || edicion.isBlank()) {
+        if (desc.isBlank() || _pclave.isBlank() || _temas.isBlank() || autor.isBlank() || year.isBlank() || filesize_.isBlank() || titulo.isBlank() || edicion.isBlank()) {
             JOptionPane.showMessageDialog(null, "No puede dejar todos los campos vacios");
         } else {
             // ACTUALIZA LA BASE DE DATOS DE BOOKS
@@ -954,7 +968,7 @@ public class EditBook extends javax.swing.JFrame {
             adminBooks.digitalesDB[codeDigital].setYear(year);
             adminBooks.digitalesDB[codeDigital].setTitulo(titulo);
             adminBooks.digitalesDB[codeDigital].setEdicion(edicion);
-            adminBooks.digitalesDB[codeDigital].setFileSize(filesize);
+            adminBooks.digitalesDB[codeDigital].setFileSize(numFilesize + " " + filesize2);
             adminBooks.digitalesDB[codeDigital].setP_clave(pclave);
             adminBooks.digitalesDB[codeDigital].setDesc(desc);
             adminBooks.digitalesDB[codeDigital].setTemas(tema);
@@ -964,7 +978,7 @@ public class EditBook extends javax.swing.JFrame {
             adminBooks.setVisible(true);
         }
     }
- 
+
     public void DataLibro() {
         AdminBooks adminBooks = new AdminBooks();
         if (adminBooks.librosDB[codeLibro] != null) {
@@ -1040,8 +1054,15 @@ public class EditBook extends javax.swing.JFrame {
             input_yearD.setText(String.valueOf(adminBooks.digitalesDB[codeDigital].getYear()));
             input_tituloD.setText(adminBooks.digitalesDB[codeDigital].getTitulo());
             input_edicionD.setText(String.valueOf(adminBooks.digitalesDB[codeDigital].getEdicion()));
-            input_filesizeD.setText(String.valueOf(adminBooks.digitalesDB[codeDigital].getFileSize()));
-
+            String filesize_ = adminBooks.digitalesDB[codeDigital].getFileSize();
+            char[] filesizeNum_ = filesize_.toCharArray();
+            String numFilesize = "";
+            for (int i = 0; i < filesizeNum_.length; i++) {
+                if (Character.isDigit(filesizeNum_[i])) {
+                    numFilesize += filesizeNum_[i];
+                }
+            }
+            input_filesizeD.setText(numFilesize);
             String[] _pclave = adminBooks.digitalesDB[codeDigital].getP_clave();
             String pclave = String.join(" ,", _pclave);
             inputArea_Pclave.setText(pclave);
@@ -1164,14 +1185,6 @@ public class EditBook extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_input_edicionDKeyTyped
 
-    private void input_filesizeDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_filesizeDKeyTyped
-        char validar = evt.getKeyChar();
-        if (Character.isLetter(validar)) {
-            getToolkit().beep();
-            evt.consume();
-        }
-    }//GEN-LAST:event_input_filesizeDKeyTyped
-
     private void input_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_typeActionPerformed
         int typeOption = input_type.getSelectedIndex();
         if (typeOption == 0) {
@@ -1229,6 +1242,14 @@ public class EditBook extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_input_disponiblesTKeyTyped
+
+    private void input_filesizeDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_input_filesizeDKeyTyped
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_input_filesizeDKeyTyped
 
     public static void main(String args[]) {
 
@@ -1331,6 +1352,7 @@ public class EditBook extends javax.swing.JFrame {
     private javax.swing.JTextField input_edicionR;
     private javax.swing.JTextField input_edicionT;
     private javax.swing.JTextField input_ejemplaresR;
+    private javax.swing.JComboBox<String> input_filesieType;
     private javax.swing.JTextField input_filesizeD;
     private javax.swing.JTextField input_isbnL;
     private javax.swing.JTextField input_tituloD;
